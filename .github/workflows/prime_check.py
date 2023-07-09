@@ -11,6 +11,7 @@ def prime_check(n: int) -> bool:  # kiem tra neu mot so la snt
     return True
 
 
+
 class fact:  # phan tich so
     factors: list[int]
 
@@ -30,21 +31,28 @@ class fact:  # phan tich so
         if n > 1:
             self.factors.append(n)
 
-    # def raw(self):  # tra ve gia tri cua __innit__()
-    #    return self.factors
-
-    # def clean(self):  # tra ve uoc nguyen thuy
-    #    self.factorsnew = []
-    #    for i in self.factors:
-    #        if i not in self.factorsnew:
-    #            self.factorsnew.append(i)
-    #    return self.factorsnew
+    def raw(self):  # tra ve gia tri cua __innit__()
+        return self.factors
 
     def divisors(self):  # tra ve tat ca cac uoc nguyen duong cua n
         divs = [1, self.n]
         for i in range(2, isqrt(self.n) + 1):
             if self.n % i == 0: divs.extend([i, int(self.n / i)])  # sang nguyen to
         divs.sort()
-        return divs
+        factorsnew = []
+        for i in divs:
+            if i not in factorsnew:
+                factorsnew.append(i)
+        return factorsnew
 
-# print(len(fact(900).divisors()))
+
+def prime_checkp(n: int) -> bool:
+    f = fact(n).divisors()
+    q = len(f)
+    if f[1] ** (q - 1) == f[q - 1]:
+        return True
+    else:
+        prime_check(n)
+
+#print(fact(49).divisors())
+#print(prime_checkp(371293))
