@@ -30,15 +30,15 @@ class fact:  # phan tich so
         if n > 1:
             self.factors.append(n)
 
-    def raw(self):  # tra ve gia tri cua __innit__()
-        return self.factors
+    # def raw(self):  # tra ve gia tri cua __innit__()
+    #    return self.factors
 
-    def clean(self):  # tra ve uoc nguyen thuy
-        self.factorsnew = []
-        for i in self.factors:
-            if i not in self.factorsnew:
-                self.factorsnew.append(i)
-        return self.factorsnew
+    # def clean(self):  # tra ve uoc nguyen thuy
+    #    self.factorsnew = []
+    #    for i in self.factors:
+    #        if i not in self.factorsnew:
+    #            self.factorsnew.append(i)
+    #    return self.factorsnew
 
     def divisors(self):  # tra ve tat ca cac uoc nguyen duong cua n
         divs = [1, self.n]
